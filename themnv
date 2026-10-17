@@ -1,1 +1,11 @@
-
+Node* insertBTS(Node* root,NhanVien nv){
+if (root == NULL){
+  return taoNode(nv);
+}
+if (nv.maNV<root->data.maNV){
+  root->left = insertBTS(root->left, nv);
+} else if (nv.maNV>root->data.maNV){
+  root->right=insertBTS(root->right,nv);
+}
+return root;
+}
