@@ -1,1 +1,13 @@
+struct Node {
+  NhanVien data;
+  Node* left;
+  Node* right;
+};
+Node* taoNode(NhanVien nv){
+  Node* newNode = new Node();
+  newNode->data = nv;
+  newNode->left = NULL;
+  newNode->right = NULL;
+  return newNode;
+}
 
