@@ -1,9 +1,9 @@
-Node* searchBST(Node* root, string maSV){
+Node* searchBST(Node* root, string maNV){
   if(root==NULL||root->data.maNV==maNV){
     return root;
   }
-  if(maNV<root->data.maSV){
+  if(maNV<root->data.maNV){
     return searchBST(root->left,maNV);
   }
-  return searchBST(root->right.maSV);
+  return searchBST(root->right.maNV);
 }
