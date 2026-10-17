@@ -1,0 +1,12 @@
+void searchBySalara(Node*root, double luong, int &count){
+if (root!=NULL) {
+  searchBySalary(root->left, luong, count );
+  if (root->data.luong==luong) {
+    cout<< left << setw(12) << root->data.maNV
+    << setw(25) << root->data.hoTen
+    << setw(20) << root->data.phongBan
+    << right << setw(15) << fixed << setprecison(0) << root->data.luong<<"VND"<<endl;
+    count++;
+    }
+  }
+}
