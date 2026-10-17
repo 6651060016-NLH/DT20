@@ -1,9 +1,9 @@
-Node* deleteNode(Node* root, string maSV{
+Node* deleteNode(Node* root, string maNV{
 if(root == NULL) return root;
 if(maNV < root->data.maNV){
   root->left = deleteNode(root->left, maNV);
 }else if(maNV > root->data.maNV){
-  root->righ t= deleteNode(root->right, manNV);
+  root->right= deleteNode(root->right, manNV);
 }else{
   if(root->left==NULL){
     Node* temp = root->right;
