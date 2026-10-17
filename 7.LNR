@@ -1,1 +1,10 @@
-
+void inorderLNR(Node* root) {
+if (root!=NULL) {
+  inorderLNR(root->left);
+  cout<< left << setw(12) << root->data.maNV
+      << setw(25) << root->data.hoTen
+      << setw(20) << root->data.phongBan
+      << right << setw(15) << fixed << setprecision(0) << root->data.luong << "VND" << endl;
+    inorderLNR(root->right);
+  }
+}
