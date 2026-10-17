@@ -1,0 +1,10 @@
+Void thongKeLuong(Node*root, double &tongLuong, int &soLuong, double&maxL, double &minL) {
+if (root!=NULL) {
+  thongKeLuong(root->left, tongLuong, soLuong, maxL, minL);
+  tongLuong+=root->data.luong;
+  soLuong++;
+  if (root->data.luong>maxL) maxL=root->data.luong;
+  if (root->data.luong<minL) minL=root->data.luong;
+  thongKeLuong(root->right, tongLuong, soLuong, maxL, minL);
+  }
+  }
