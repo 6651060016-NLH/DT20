@@ -1,1 +1,13 @@
+#include <iostream>
+#include <iomanip>
+#include <string>
+using namespace std;
+struct NhanVien {
+  string maNV;
+  string hoTen;
+  string phongBan;
+  double luong;
+};
+
+
 
