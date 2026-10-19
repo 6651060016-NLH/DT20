@@ -1,6 +1,6 @@
 Node* findMin(Node* root){
   Node* current = root;
-while(current && currnet->left=NULL){
+while(current && current->left=NULL){
 current = current->left;
 }
 return current;
