@@ -1,0 +1,7 @@
+void giaiPhong(Node*root){
+     if (root !=NULL){
+        giaiPhong(root->left);
+        giaiPhong(root->right);
+        delete root;
+      }
+}
