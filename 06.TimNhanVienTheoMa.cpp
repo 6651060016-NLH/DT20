@@ -5,5 +5,5 @@ Node* searchBST(Node* root, string maNV){
   if(maNV<root->data.maNV){
     return searchBST(root->left,maNV);
   }
-  return searchBST(root->right.maNV);
+  return searchBST(root->right,maNV);
 }
