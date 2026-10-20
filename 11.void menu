@@ -1,0 +1,15 @@
+void menu(){
+  cout<<\n============QUAN LY NHAN SU & LUONG (BST)==============\n";
+  cout<<"1. Them nhanh vien moi(Insert)\n";
+  cout<<"2. Hien thi danh sach tang dan theo ma (Duyet LNR)\n";
+  cout<<"3. Tim kiem nhan vien theo ma (Search O(logN))\n";
+  cout<<"4. Tim kien nhan vien theo muc luong\n";
+  cout<<"5. Xoa ho so nhan vien (Delet du 3 truong hop)\n";
+  cout<<"6. Thong ke luong co quan\n";
+  cout<<"0. Thoat\n";
+  cout<<"======================================================\n";
+  cout<<"Nhap lua chon: ";
+}
+  
+ 
+     
