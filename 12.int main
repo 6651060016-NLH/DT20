@@ -1,0 +1,98 @@
+int main(){
+  node*root = NULL;
+  int choice;
+  do{
+      menu();
+      if(!(cin>>choice)){
+         cin.clear();
+         string trash;
+         getline(cin,trash);
+         cout << "lua chon khong hop le!\n";
+         continue;
+      }
+      string ignoreBuffer;
+      getline(cin, ignoreBuffer);
+      
+      switch (choice){
+          case 1: {
+              NhanVien nv;
+              cout << "Nhap ma nhan vien: "; getline(cin, nv.maNV);
+              cout << "Nhap ho ten: "; getline(cin, nv.hoTen);
+              cout << "Nhap phong ban: ";getline(cin, nv.phongBan);
+              cout << "Nhap tien luong: ";cin >> nv.luong;
+              root = insertBST(root, nv);
+              cout << "Them nhan vien thanh cong!\n";
+              break;
+          }
+          case 2: {
+              cout << "\n---DANH SACH NHAN VIEN ( TANG DAN THEO MA) ---\n";
+              cout << left << setw(12) << "Ma NV" << stw(25) << ""Ho Ten" << setw(20) << "Phong Ban" << right << setw(15) << "Luong" << endl;
+              cout << string(72, '-') << enl;
+              if(root == NULL) cout << "(danh sach trong)\n";
+              else inorderLNR(root);
+              break;
+          }
+          case 3: {
+              cout << "Nhap ma nhan vien can tim: "; getline(cin, ma);
+              Node* kq = searchBST(root,ma);
+              if (kq != NULL) {
+                 cout << "Tim thay nhan vien!\n";
+                 cout << "Ma: " << kq->data.maNV << " | Ten: " << kq->data.hoTen << " | Phong: " << kq->data.phongBan << " | Luong: " << fixed << setprecision(0) << kq->data.luong << "VND" << enl;
+                 } else {
+                     cout << "Khong tim thay nhan vien co ma: " << ma << endl;
+                  }
+                  break;
+           }
+           case 4: {
+             double 1;
+             cout << "Nhap muc lung can tim: "; cin >> 1;
+             int cuont = 0;
+             cout <<"\n--- KET QUA CAN TIM THEO LUONG ---\n";
+             cout << left << setw(12) << "Ma NV" << setw(25) << "Ho Ten" << setw(20) << "Phong Ban" << right << setw(15) << "Luong" << endl;
+             cout << string(root, 1,cout);
+             cout << "Tim thay " << cout << " nhan vien.\n";
+             break;
+           }
+           case 5: {
+               string ma;
+               cout << "Nhap ma nhan vien can xoa: "; getline(cin, ma);
+               Node* check = searchBST(root, ma);
+               if(check == NULL) {
+                  cout << "Khong ton tai nhan vien nay!\n";
+                  } else {
+                  root = deleteNode(root, ma);
+                  cout << "Xoa ho so nhan vien thanh cong!\n";
+                  }
+                  break;
+           }
+           case 6: {
+               double tong = 0, maxL = 0, minL = le18;
+               int sl = 0;
+               thongKeLuong(root, tong, sl, maxL, minL);
+               cout << "\n---THONG KE LUONG CO QUAN ---\n";
+               cout << "Tong so nhan su: " << sl << endl;
+               if (sl > 0) {
+                   cout << "Tong quy luong: " << fixed << setprecision(0) << tong << " VND\n"";
+                   cout << "Luong trung binh: " << fixed << setprecision(0) << (tong / s1) << " VND\n";
+                   cout << "Luong cao nhat: " << fixed << setprecision(0) << maxL << " VND\n";
+                   cout << "Luong thap nhat: " << fixed << setprecision(0) << minL << " VND\n";
+               }
+               break;
+            }
+            case 0:
+                giaiPhong(root);
+                cout << "Thoat chuong trinh.\n";
+                break;
+            default:
+                cout << "Lua chon khong hop le!\n";
+        }
+    } while (choice != 0);
+    return 0;
+}
+                  
+           
+                
+                   
+                   
+                   
+          
