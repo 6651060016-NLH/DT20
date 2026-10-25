@@ -1,4 +1,4 @@
-Void thongKeLuong(Node*root, double &tongLuong, int &soLuong, double&maxL, double &minL) {
+void thongKeLuong(Node*root, double &tongLuong, int &soLuong, double&maxL, double &minL) {
 if (root!=NULL) {
   thongKeLuong(root->left, tongLuong, soLuong, maxL, minL);
   tongLuong+=root->data.luong;
