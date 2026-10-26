@@ -1,5 +1,34 @@
 int main(){
     Node* root = NULL;
+void docFile(Node* &root, string filename) {
+    ifstream fin(filename);
+    if (!fin.is_open()) {
+        cout << "(Chua tim thay file du lieu cu, khoi tao danh sach trong)\n";
+        return;
+    }
+    string line;
+    int count = 0;
+    while (getline(fin, line)) {
+        if (line.empty()) continue;
+        stringstream ss(line);
+        NhanVien nv;
+        string tempLuong;
+
+        // Tách chuỗi theo dấu phẩy (CSV/TXT)
+        getline(ss, nv.maNV, ',');
+        getline(ss, nv.hoTen, ',');
+        getline(ss, nv.phongBan, ',');
+        getline(ss, tempLuong, ',');
+
+        if (!nv.maNV.empty() && !tempLuong.empty()) {
+            nv.luong = stod(tempLuong);
+            root = insertBST(root, nv);
+            count++;
+        }
+    }
+    fin.close();
+    cout << "-> Da khoi phục " << count << " nhan vien tu tep " << filename << endl;
+}
     int choice;
     do{
         menu();
@@ -81,6 +110,28 @@ int main(){
                  break;
               }
               case 0:
+    void ghiNodeVaoFile(Node* root, ofstream& fout) {
+    if (root != NULL) {
+        // Ghi dữ liệu ngăn cách bằng dấu phẩy hoặc dòng mới
+        fout << root->data.maNV << ","
+             << root->data.hoTen << ","
+             << root->data.phongBan << ","
+             << root->data.luong << "\n";
+        ghiNodeVaoFile(root->left, fout);
+        ghiNodeVaoFile(root->right, fout);
+    }
+}
+
+void luuFile(Node* root, string filename) {
+    ofstream fout(filename);
+    if (!fout.is_open()) {
+        cout << "[Loi] Khong the mo tep de ghi data!\n";
+        return;
+    }
+    ghiNodeVaoFile(root, fout);
+    fout.close();
+    cout << "-> Da luu du lieu vao tep " << filename << " thanh cong!\n";
+}
                   giaiPhong(root);
                   cout << "Thoat chuong trinh.\n";
                   break;
