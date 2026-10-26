@@ -1,6 +1,8 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include <fstream> 
+#include <sstream>
 using namespace std;
 struct NhanVien {
   string maNV;
@@ -8,6 +10,3 @@ struct NhanVien {
   string phongBan;
   double luong;
 };
-
-
-
