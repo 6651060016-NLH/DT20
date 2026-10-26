@@ -1,0 +1,54 @@
+void docFile(Node* &root, string filename) {
+    ifstream fin(filename.c_str()); // Su dung .c_str() cho Dev-C++
+    if (!fin.is_open()) {
+        cout << "(Chua tim thay file du lieu cu, khoi tao danh sach trong)\n";
+        return;
+    }
+    string line;
+    int count = 0;
+    while (getline(fin, line)) {
+        if (line.empty()) continue;
+        stringstream ss(line);
+        NhanVien nv;
+        string tempLuong;
+
+        // Tach chuoi theo dau phay
+        getline(ss, nv.maNV, ',');
+        getline(ss, nv.hoTen, ',');
+        getline(ss, nv.phongBan, ',');
+        getline(ss, tempLuong, ',');
+
+        if (!nv.maNV.empty() && !tempLuong.empty()) {
+            // Su dung stringstream chuyen chuoi thanh double (thay the stod cua C++11)
+            stringstream ssLuong(tempLuong);
+            ssLuong >> nv.luong;
+
+            root = insertBST(root, nv);
+            count++;
+        }
+    }
+    fin.close();
+    cout << "-> Da khoi phuc " << count << " nhan vien tu tep " << filename << endl;
+}
+
+void ghiNodeVaoFile(Node* root, ofstream& fout) {
+    if (root != NULL) {
+        fout << root->data.maNV << ","
+             << root->data.hoTen << ","
+             << root->data.phongBan << ","
+             << root->data.luong << "\n";
+        ghiNodeVaoFile(root->left, fout);
+        ghiNodeVaoFile(root->right, fout);
+    }
+}
+
+void luuFile(Node* root, string filename) {
+    ofstream fout(filename.c_str()); // Su dung .c_str() cho Dev-C++
+    if (!fout.is_open()) {
+        cout << "[Loi] Khong the mo tep de ghi du lieu!\n";
+        return;
+    }
+    ghiNodeVaoFile(root, fout);
+    fout.close();
+    cout << "-> Da luu du lieu vao tep " << filename << " thanh cong!\n";
+}
