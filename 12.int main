@@ -20,9 +20,15 @@ int main(){
             case 1: {
                 NhanVien nv;
                 cout << "Nhap ma nhan vien: "; getline(cin, nv.maNV);
+                if (searchBST(root, nv.maNV) != NULL) {               
+                    cout << "[Loi] Ma nhan vien '" << nv.maNV << "' da ton tai trong he thong!\n";
+                    break;
+                }
                 cout << "Nhap ho ten: "; getline(cin, nv.hoTen);
                 cout << "Nhap phong ban: ";getline(cin, nv.phongBan);
                 cout << "Nhap tien luong: ";cin >> nv.luong;
+                string cleanBuffer;
+                getline(cin, cleanBuffer);
                 root = insertBST(root, nv);
                 cout << "Them nhan vien thanh cong!\n";
                 break;
@@ -50,6 +56,8 @@ int main(){
              case 4: {
                double luongTim;
                cout << "Nhap muc luong can tim: "; cin >> luongTim;
+                 string cleanBuffer;              
+                getline(cin, cleanBuffer);
                int cuont = 0;
                cout <<"\n--- KET QUA CAN TIM THEO LUONG ---\n";
                cout << left << setw(12) << "Ma NV" << setw(25) << "Ho Ten" << setw(20) << "Phong Ban" << right << setw(15) << "Luong" << endl;
