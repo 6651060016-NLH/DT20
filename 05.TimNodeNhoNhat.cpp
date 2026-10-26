@@ -3,4 +3,4 @@ Node* findMin(Node* root){
 while(current && current->left!=NULL){
 current = current->left;
 }
-return current;
+return current;}
